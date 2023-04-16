@@ -1,8 +1,8 @@
 # python3
 def read_input():
-    L = input()
-    pattern = input()
-    text = input()
+    L = input().rstrip()
+    pattern = input().rstrip()
+    text = input().rstrip()
     
     if L == 'F':
         with open("/home/runner/work/string-pattern-AnastasijaAndrjuscenko/string-pattern-AnastasijaAndrjuscenko/tests/06", 'r') as file:
