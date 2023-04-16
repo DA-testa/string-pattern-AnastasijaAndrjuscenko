@@ -1,6 +1,9 @@
 # python3
 def read_input():
     L = input()
+    print(input() + "FIRST")
+    print(input() + "SECOND")
+    
     if L == 'I':
         print(input())
         print(input() + "THIS IS THE SECOND")
