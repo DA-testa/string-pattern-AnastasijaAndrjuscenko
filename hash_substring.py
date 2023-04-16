@@ -1,10 +1,12 @@
 # python3
 def read_input():
     L = input().rstrip()
-    pattern = input().rstrip()
-    text = input().rstrip()
     
-    if L == 'F':
+    if L == 'I':
+        pattern = input().rstrip()
+        text = input().rstrip()
+
+    elif L == 'F':
         with open("/home/runner/work/string-pattern-AnastasijaAndrjuscenko/string-pattern-AnastasijaAndrjuscenko/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
