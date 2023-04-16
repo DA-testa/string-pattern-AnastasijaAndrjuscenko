@@ -2,7 +2,12 @@
 def read_input():
     L = input()
     if L == 'I':
-        pattern, text = input().split('\n')
+        print(input())
+        print(input() + "THIS IS THE SECOND")
+        
+        TT = input()
+        pattern = TT.readline().rstrip()
+        text = TT.readline().rstrip()
     elif L == 'F':
         with open("/home/runner/work/string-pattern-AnastasijaAndrjuscenko/string-pattern-AnastasijaAndrjuscenko/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
