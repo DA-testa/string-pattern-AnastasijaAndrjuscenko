@@ -1,17 +1,10 @@
 # python3
 def read_input():
     L = input()
-    print(input() + "FIRST")
-    print(input() + "SECOND")
+    pattern = input()
+    text = input()
     
-    if L == 'I':
-        print(input())
-        print(input() + "THIS IS THE SECOND")
-        
-        TT = input()
-        pattern = TT.readline().rstrip()
-        text = TT.readline().rstrip()
-    elif L == 'F':
+    if L == 'F':
         with open("/home/runner/work/string-pattern-AnastasijaAndrjuscenko/string-pattern-AnastasijaAndrjuscenko/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
