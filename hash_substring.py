@@ -1,32 +1,44 @@
 # python3
-
 def read_input():
-    # this function needs to aquire input both from keyboard and file
-    # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
-    
-    
-    # after input type choice
-    # read two lines 
-    # first line is pattern 
-    # second line is text in which to look for pattern 
-    
-    # return both lines in one return
-    
-    # this is the sample return, notice the rstrip function
-    return (input().rstrip(), input().rstrip())
+    L = input()
+    if L == 'I':
+        pattern, text = input().split('\n')
+    elif L == 'F':
+        with open("/home/runner/work/string-pattern-AnastasijaAndrjuscenko/string-pattern-AnastasijaAndrjuscenko/tests/06", 'r') as file:
+            pattern = file.readline().rstrip()
+            text = file.readline().rstrip()
+    return pattern, text
 
 def print_occurrences(output):
-    # this function should control output, it doesn't need any return
     print(' '.join(map(str, output)))
 
 def get_occurrences(pattern, text):
-    # this function should find the occurances using Rabin Karp alghoritm 
+    m = 10**9 + 9 
+    p = 31
+    n = len(text)
+    m = len(pattern)
 
-    # and return an iterable variable
-    return [0]
+    p_powers = [1]
+    for i in range(1, n):
+        p_powers.append((p_powers[-1] * p) % m)
 
 
-# this part launches the functions
+    pattern_hash = 0
+    window_hash = 0
+    for i in range(m):
+        pattern_hash = (pattern_hash * p + ord(pattern[i])) % m
+        window_hash = (window_hash * p + ord(text[i])) % m
+
+    occurrences = []
+    for i in range(n - m + 1):
+        if pattern_hash == window_hash:
+            if pattern == text[i:i+m]:
+                occurrences.append(i)
+        if i < n - m:
+            window_hash = ((window_hash - p_powers[m-1] * ord(text[i])) * p + ord(text[i+m])) % m
+            window_hash = (window_hash + m) % m 
+
+    return occurrences
+
 if __name__ == '__main__':
     print_occurrences(get_occurrences(*read_input()))
-
